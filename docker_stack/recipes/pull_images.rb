@@ -4,8 +4,8 @@ node[:my_apps].each do |name, image|
     interpreter "bash"
     user "root"
     code <<-EOH
-      /etc/init.d/docker stop
-      /etc/init.d/docker --insecure-registry #{image.split("/")[0]}
+      service docker stop
+      service docker start --insecure-registry #{image.split("/")[0]}
       docker pull #{image}
     EOH
   end
