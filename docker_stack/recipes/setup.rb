@@ -6,7 +6,7 @@ node[:repos].each do |name, repo|
     interpreter "bash"
     user "root"
     code <<-EOH
-      service docker stop && service docker --insecure-registry #{repo} start
+      echo 'DOCKER_OPTS="$DOCKER_OPTS --insecure-registry=#{repo}"' > /etc/default/docker && sudo service docker.io restart
     EOH
   end
 end
