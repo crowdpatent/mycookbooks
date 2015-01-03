@@ -7,7 +7,7 @@ node[:my_apps].each do |name, image|
     interpreter "bash"
     user "root"
     code <<-EOH
-      docker run -d -p 3000:3000 --name=#{name} #{image}
+      docker run -d -p 3000:3000 -e DB_HOST=#{ENV['DB_HOST']} -e DB_USER=#{ENV['DB_USER']} -e DB_PASSWORD=#{ENV['DB_PASSWORD']} --name=#{name} #{image}
     EOH
   end
 end
