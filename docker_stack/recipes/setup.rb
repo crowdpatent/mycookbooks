@@ -7,7 +7,7 @@ node[:repos].each do |name, repo|
     interpreter "bash"
     user "root"
     code <<-EOH
-      service docker stop && service docker --insecure-registry #{repo} start
+      service docker stop && service docker start --insecure-registry #{repo}
     EOH
   end
 end
