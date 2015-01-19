@@ -8,7 +8,7 @@ node[:my_apps].each do |name, image|
   end
 
   if node[:ports]
-    ports = node[:ports].map {|k, v| "-p #{k}=#{v}" }.join(" ")
+    ports = node[:ports].map {|k, v| "-p #{k}:#{v}" }.join(" ")
     puts ports
   end
 
