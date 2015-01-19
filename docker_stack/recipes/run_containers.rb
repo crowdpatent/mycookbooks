@@ -16,7 +16,7 @@ node[:my_apps].each do |name, image|
     interpreter "bash"
     user "root"
     code <<-EOH
-      docker run --restart=on-failure:5 -d #{ports} #{env_vars} --name=#{name} #{image}
+      docker run -d #{ports} #{env_vars} --name=#{name} #{image}
     EOH
   end
 end
