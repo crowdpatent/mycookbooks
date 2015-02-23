@@ -1,4 +1,3 @@
-# Run each app. We don't expose any ports since Nginx will handle all incoming traffic as a proxy
 node[:my_apps].each do |name, image|  
   env_vars = ""
   ports    = ""
