@@ -11,6 +11,8 @@ node[:deploy].each do |app, deploy|
   execute "run gulp and bower" do
     cwd "#{deploy[:deploy_to]}/current"
     user "root"
+    command "npm install"
+    command "npm i gulp"
     command "bower install --allow-root --config.interactive=false"
     command "gulp default"
   end
