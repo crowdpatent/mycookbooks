@@ -10,6 +10,7 @@ node[:deploy].each do |app, deploy|
     npm install -g bower
     bower install --allow-root --config.interactive=false
     gulp default
+    ./install_wkhtml.sh
     EOH
   end
 end
